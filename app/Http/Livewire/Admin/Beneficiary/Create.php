@@ -30,7 +30,9 @@ class Create extends Component
     $surnameResponsable,
     $secondSurnameResponsable,
     $inputObservations,
-    $inputDate;
+    $inputDate,
+    $idType,
+    $identificationNumber;
 
     public function render()
     {

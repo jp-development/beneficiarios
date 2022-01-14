@@ -34,6 +34,21 @@
                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                 </div>
                 <div class="col-span-3 w-full flex flex-col">
+                    <label class="text-base text-secondary">Tipo de identificacion</label>
+                    <select wire:model.lazy='idType'
+                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder='Tipo de identificacion'>
+                        <option value=""></option>
+                        <option value="Registro Civil">Registro civil</option>
+                        <option value="Tarjeta de Identidad">Tarjeta de identidad</option>
+                        <option value="Cedula de Ciudadania">Cedula de ciudadania</option>
+                    </select>
+                </div>
+                <div class="col-span-3 w-full flex flex-col">
+                    <label class="text-base text-secondary">Numero de identificacion</label>
+                    <input type="text" wire:model.lazy='secondSurname'
+                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                </div>
+                <div class="col-span-3 w-full flex flex-col">
                     <label class="text-base text-secondary ">Sexo</label>
                     <select type="text" wire:model.lazy='sex'
                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
@@ -47,13 +62,25 @@
                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                 </div>
                 <div class="col-span-3 w-full flex flex-col">
-                    <label class="text-base text-secondary">Departamento</label>
+                    <label class="text-base text-secondary">Departamento de nacimiento</label>
                     <select type="text"
                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                     </select>
                 </div>
                 <div class="col-span-3 w-full flex flex-col">
-                    <label class="text-base text-secondary ">Municipio</label>
+                    <label class="text-base text-secondary ">Municipio de nacimiento</label>
+                    <select type="text"
+                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                    </select>
+                </div>
+                <div class="col-span-3 w-full flex flex-col">
+                    <label class="text-base text-secondary ">Pais</label>
+                    <select type="text"
+                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                    </select>
+                </div>
+                <div class="col-span-3 w-full flex flex-col">
+                    <label class="text-base text-secondary ">Nacionalidad</label>
                     <select type="text"
                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                     </select>
@@ -100,12 +127,12 @@
                         <input type="radio" name="adoptability" wire:model.lazy='disability' value="0"> NO
                     </label>
                 </div>
-                <div class="col-span-4 w-full flex flex-col">
+                <div class="col-span-6 w-full flex flex-col">
                     <label class="text-base text-secondary ">EPS</label>
                     <input type="text"
                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                 </div>
-                <div class="col-span-4 w-full flex flex-col">
+                <div class="col-span-6 w-full flex flex-col">
                     <label class="text-base text-secondary ">Grupo etnico</label>
                     <select type="text"
                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
@@ -113,6 +140,17 @@
                         <option value="afrocolombiano">Afrocolombiano</option>
                     </select>
                 </div>
+                <div class="col-span-4 w-full flex flex-col">
+                    <label class="text-base text-secondary ">Fecha de apertura PARD</label>
+                    <input type="date"
+                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                </div>
+                <div class="col-span-4 w-full flex flex-col">
+                    <label class="text-base text-secondary ">Fecha de ingreso</label>
+                    <input type="date"
+                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                </div>
+
                 <div class="col-span-4 w-full flex flex-col">
                     <label class="text-base text-secondary ">Escolaridad</label>
                     <div>
@@ -127,18 +165,13 @@
                         </label>
                     </div>
                 </div>
-                <div class="col-span-4 w-full flex flex-col">
-                    <label class="text-base text-secondary ">Fecha de ingreso</label>
-                    <input type="date"
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                </div>
-                <div class="col-span-12 w-full flex flex-col" wire:ignore>
+                <div class="col-span-12 w-full flex flex-col" >
                     <label class="text-base text-secondary ">Observaciones de escolaridad</label>
                     <textarea
                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                        cols="30" rows="10" id='observationsSchool'></textarea>
+                        cols="30" rows="10" ></textarea>
                 </div>
-                <p class="font-extrabold text-third text-2xl mb-3 col-span-12">Datos del acudiente</p>
+                <p class="font-extrabold text-third text-2xl mb-3 col-span-12">Datos de contacto</p>
                 <div class="col-span-4 w-full flex flex-col">
                     <label class="text-base text-secondary ">Nombres del acudiente</label>
                     <input type="text"
@@ -154,7 +187,22 @@
                     <input type="text"
                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                 </div>
-                <div class="col-span-12 w-full flex flex-col" wire:ignore>
+                <div class="col-span-4 w-full flex flex-col">
+                    <label class="text-base text-secondary ">Parentesco</label>
+                    <input type="text"
+                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                </div>
+                <div class="col-span-4 w-full flex flex-col">
+                    <label class="text-base text-secondary ">Direccion</label>
+                    <input type="text"
+                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                </div>
+                <div class="col-span-4 w-full flex flex-col">
+                    <label class="text-base text-secondary ">Telefono</label>
+                    <input type="tel"
+                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                </div>
+                <div class="col-span-12 w-full flex flex-col">
                     <label class="text-base text-secondary ">Observaciones de ingreso</label>
                     <p class="text-third text-sm">Aqui se ingresara las observaciones de como el beneficiario fue
                         ingresado en nuestras instalaciones</p>
@@ -173,8 +221,6 @@
     </div>
     @section('js')
         <script>
-            var editor = CKEDITOR.replace('observations');
-            var editorSchool = CKEDITOR.replace('observationsSchool');
         </script>
     @endsection
 </div>
