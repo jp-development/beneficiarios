@@ -54,7 +54,7 @@
                     </li>
                     <li class="flex space-x-4 items-center text-white  hover:text-fourth font-bold text-lg cursor-pointer">
                         <ion-icon size='small' name="bookmarks"></ion-icon>
-                        <a href="">Roles</a>
+                        <a href="/roles">Roles</a>
                     </li>
                     <li class="flex space-x-4 items-center text-white  hover:text-fourth font-bold text-lg cursor-pointer">
                         <ion-icon size='small' name="swap-vertical"></ion-icon>
