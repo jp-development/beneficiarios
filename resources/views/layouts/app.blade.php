@@ -29,7 +29,7 @@
             <div class="flex  justify-center py-10 shadow-sm pr-4">
 
                 <div class="pl-2 flex flex-col items-center">
-                    <img src="{{ asset('images/logo-white.png') }}" alt="">
+                    <img src="{{ asset('images/logo1.png') }}" class="w-80" alt="">
                     <p class="text-3xl font-extrabold text-white">{{ config('app.nameConfig') }}</h1>
                     <p class="text-base block text-white tracking-widest">{{ config('app.address') }}</p>
                 </div>
@@ -46,7 +46,7 @@
                     </li>
                     <li class="flex space-x-4 items-center text-white  hover:text-fourth font-bold text-lg cursor-pointer">
                         <ion-icon size='small' name="people"></ion-icon>
-                        <a href="/beneficiaries">Beneficiarios</a>
+                           <a href="/beneficiaries">Beneficiarios</a>
                     </li>
                     <li class="flex space-x-4 items-center text-white  hover:text-fourth font-bold text-lg cursor-pointer">
                         <ion-icon size='small' name="people"></ion-icon>
@@ -62,7 +62,7 @@
                     </li>
                     <li class="flex space-x-4 items-center text-white  hover:text-fourth font-bold text-lg cursor-pointer">
                         <ion-icon size='small' name="settings"></ion-icon>
-                        <a href="">Configuraciones</a>
+                        <a href="/settings">Configuraciones</a>
                     </li>
                 </ul>
             </div>
@@ -71,9 +71,10 @@
     </nav>
 
     <div class="w-full min-h-screen pt-20 bg-secondary">
-        <div class="container mx-auto ">
+        <div class="mx-4">
 
             @yield('content')
+            
         </div>
     </div>
     

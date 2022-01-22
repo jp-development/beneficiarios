@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Beneficiary;
 
+use App\Models\Operator;
 use Livewire\Component;
 
 class Create extends Component
@@ -27,19 +28,39 @@ class Create extends Component
     $scholarship,
     $observationsSchool,
     $nameResponsable,
-    $surnameResponsable,
-    $secondSurnameResponsable,
     $inputObservations,
     $inputDate,
     $idType,
-    $identificationNumber;
+    $identificationNumber,
+    
+    $sedes = [];
+
+    protected $rules = [
+        'sim' => 'required',
+        'zonalCenter' => 'required',
+        'name' => 'required',
+        'surname' => 'required',
+        'secondSurname' => 'required',
+        'sex' => 'required',
+        'birth' => 'required',
+        'department' => 'required',
+        'municipality' => 'required',
+        'campus' => 'required',
+        'authority' => 'required',
+        'documents' => 'required',
+        
+    ];
 
     public function render()
     {
+        $this->sedes = Operator::all();
+
         return view('livewire.admin.beneficiary.create')
         ->extends('layouts.app')
         ->section('content');
     }
+
+
 
     public function create ()
     {

@@ -4,6 +4,8 @@ use App\Http\Livewire\Admin\Beneficiary;
 use App\Http\Livewire\Admin\Dashboard;
 use App\Http\Livewire\Admin\Beneficiary\Create;
 use App\Http\Livewire\Admin\Operators\Index;
+use App\Http\Livewire\Admin\Options\Index as OptionsIndex;
+use App\Http\Livewire\Admin\Reports\Index as ReportsIndex;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,3 +33,11 @@ Route::get('beneficiaries/create', Create::class);
 //COMPONENTS  OF OPERATORS 
 
 Route::get('operators', Index::class);
+
+// COMPONENTS  OF  OPTIONS
+
+Route::get('settings', OptionsIndex::class);
+
+// COMPONENTS OF REPORTS 
+
+Route::get('reports', ReportsIndex::class);

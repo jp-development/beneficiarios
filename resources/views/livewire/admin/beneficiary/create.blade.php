@@ -10,33 +10,33 @@
                 <div class="col-span-6 w-full flex flex-col">
                     <label class=" text-base text-secondary ">SIM</label>
                     <input type="text" wire:model.lazy='sim'
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        class="border rounded-md border-third focus:outline-none p-2 ">
                 </div>
                 <div class="col-span-6 w-full flex flex-col">
                     <label class="text-base text-secondary ">Centro zonal</label>
                     <input type="text" wire:model.lazy='zonalCenter'
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        class="border rounded-md border-third focus:outline-none p-2 ">
 
                 </div>
                 <div class="col-span-4 w-full flex flex-col">
                     <label class="text-base text-secondary ">Nombres</label>
                     <input type="text" wire:model.lazy='name'
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        class="border rounded-md border-third focus:outline-none p-2 ">
                 </div>
                 <div class="col-span-4 w-full flex flex-col">
                     <label class="text-base text-secondary ">Primer apellido</label>
                     <input type="text" wire:model.lazy='surname'
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        class="border rounded-md border-third focus:outline-none p-2 ">
                 </div>
                 <div class="col-span-4 w-full flex flex-col">
                     <label class="text-base text-secondary">Segundo apellido</label>
                     <input type="text" wire:model.lazy='secondSurname'
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        class="border rounded-md border-third focus:outline-none p-2 ">
                 </div>
                 <div class="col-span-3 w-full flex flex-col">
                     <label class="text-base text-secondary">Tipo de identificacion</label>
                     <select wire:model.lazy='idType'
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder='Tipo de identificacion'>
+                        class="border rounded-md border-third focus:outline-none p-2 " placeholder='Tipo de identificacion'>
                         <option value=""></option>
                         <option value="Registro Civil">Registro civil</option>
                         <option value="Tarjeta de Identidad">Tarjeta de identidad</option>
@@ -46,12 +46,12 @@
                 <div class="col-span-3 w-full flex flex-col">
                     <label class="text-base text-secondary">Numero de identificacion</label>
                     <input type="text" wire:model.lazy='secondSurname'
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        class="border rounded-md border-third focus:outline-none p-2 ">
                 </div>
                 <div class="col-span-3 w-full flex flex-col">
                     <label class="text-base text-secondary ">Sexo</label>
                     <select type="text" wire:model.lazy='sex'
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        class="border rounded-md border-third focus:outline-none p-2 ">
                         <option value="masculino">Masculino</option>
                         <option value="femenino">Femenino</option>
                     </select>
@@ -59,42 +59,41 @@
                 <div class="col-span-3 w-full flex flex-col">
                     <label class="text-base text-secondary ">Fecha de nacimiento</label>
                     <input type="date"
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        class="border rounded-md border-third focus:outline-none p-2 ">
                 </div>
-                <div class="col-span-3 w-full flex flex-col">
+                <div class="col-span-4 w-full flex flex-col">
                     <label class="text-base text-secondary">Departamento de nacimiento</label>
                     <select type="text"
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        class="border rounded-md border-third focus:outline-none p-2 ">
                     </select>
                 </div>
-                <div class="col-span-3 w-full flex flex-col">
+                <div class="col-span-4 w-full flex flex-col">
                     <label class="text-base text-secondary ">Municipio de nacimiento</label>
                     <select type="text"
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        class="border rounded-md border-third focus:outline-none p-2 ">
                     </select>
                 </div>
-                <div class="col-span-3 w-full flex flex-col">
-                    <label class="text-base text-secondary ">Pais</label>
-                    <select type="text"
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                    </select>
-                </div>
-                <div class="col-span-3 w-full flex flex-col">
+                <div class="col-span-4 w-full flex flex-col">
                     <label class="text-base text-secondary ">Nacionalidad</label>
                     <select type="text"
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        class="border rounded-md border-third focus:outline-none p-2 ">
                     </select>
                 </div>
                 <div class="col-span-6 w-full flex flex-col">
                     <label class="text-base text-secondary ">Sede</label>
                     <select type="text"
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        class="border rounded-md border-third focus:outline-none p-2 ">
+                        @forelse ($sedes as $sede)
+                            <option value="">{{ $sede->name }}</option>
+                        @empty
+                            
+                        @endforelse
                     </select>
                 </div>
                 <div class="col-span-6 w-full flex flex-col">
                     <label class="text-base text-secondary ">Autoridad competente</label>
                     <input type="text"
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        class="border rounded-md border-third focus:outline-none p-2 ">
                 </div>
                 <div class="col-span-4 w-full flex flex-col">
                     <label class="text-base text-secondary ">Documentos</label>
@@ -102,11 +101,7 @@
                         <label class="inline-flex items-center mt-3 mx-2">
                             <input type="checkbox" class="form-checkbox h-5 w-5 text-fourth"><span
                                 class="ml-2 text-gray-700">label</span>
-                        </label>
-                        <label class="inline-flex items-center mt-3">
-                            <input type="checkbox" class="form-checkbox h-5 w-5 text-fourth"><span
-                                class="ml-2 text-gray-700">label</span>
-                        </label>
+                        </label>    
                     </div>
                 </div>
                 <div class="col-span-4 w-full flex flex-col">
@@ -130,12 +125,12 @@
                 <div class="col-span-6 w-full flex flex-col">
                     <label class="text-base text-secondary ">EPS</label>
                     <input type="text"
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        class="border rounded-md border-third focus:outline-none p-2 ">
                 </div>
                 <div class="col-span-6 w-full flex flex-col">
                     <label class="text-base text-secondary ">Grupo etnico</label>
                     <select type="text"
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        class="border rounded-md border-third focus:outline-none p-2 ">
                         <option value="indígenas">Indígena</option>
                         <option value="afrocolombiano">Afrocolombiano</option>
                     </select>
@@ -143,12 +138,12 @@
                 <div class="col-span-4 w-full flex flex-col">
                     <label class="text-base text-secondary ">Fecha de apertura PARD</label>
                     <input type="date"
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        class="border rounded-md border-third focus:outline-none p-2 ">
                 </div>
                 <div class="col-span-4 w-full flex flex-col">
                     <label class="text-base text-secondary ">Fecha de ingreso</label>
                     <input type="date"
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        class="border rounded-md border-third focus:outline-none p-2 ">
                 </div>
 
                 <div class="col-span-4 w-full flex flex-col">
@@ -168,46 +163,36 @@
                 <div class="col-span-12 w-full flex flex-col" >
                     <label class="text-base text-secondary ">Observaciones de escolaridad</label>
                     <textarea
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                        class="border rounded-md border-third focus:outline-none p-2 "
                         cols="30" rows="10" ></textarea>
                 </div>
                 <p class="font-extrabold text-third text-2xl mb-3 col-span-12">Datos de contacto</p>
-                <div class="col-span-4 w-full flex flex-col">
-                    <label class="text-base text-secondary ">Nombres del acudiente</label>
+                <div class="col-span-12 w-full flex flex-col">
+                    <label class="text-base text-secondary ">Nombre y apellidos del acudiente</label>
                     <input type="text"
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                </div>
-                <div class="col-span-4 w-full flex flex-col">
-                    <label class="text-base text-secondary ">Primer apellido del acudiente</label>
-                    <input type="text"
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                </div>
-                <div class="col-span-4 w-full flex flex-col">
-                    <label class="text-base text-secondary ">Segundo apellido del acudiente</label>
-                    <input type="text"
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        class="border rounded-md border-third focus:outline-none p-2 ">
                 </div>
                 <div class="col-span-4 w-full flex flex-col">
                     <label class="text-base text-secondary ">Parentesco</label>
                     <input type="text"
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        class="border rounded-md border-third focus:outline-none p-2 ">
                 </div>
                 <div class="col-span-4 w-full flex flex-col">
                     <label class="text-base text-secondary ">Direccion</label>
                     <input type="text"
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        class="border rounded-md border-third focus:outline-none p-2 ">
                 </div>
                 <div class="col-span-4 w-full flex flex-col">
                     <label class="text-base text-secondary ">Telefono</label>
                     <input type="tel"
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        class="border rounded-md border-third focus:outline-none p-2 ">
                 </div>
                 <div class="col-span-12 w-full flex flex-col">
                     <label class="text-base text-secondary ">Observaciones de ingreso</label>
                     <p class="text-third text-sm">Aqui se ingresara las observaciones de como el beneficiario fue
                         ingresado en nuestras instalaciones</p>
                     <textarea
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                        class="border rounded-md border-third focus:outline-none p-2 "
                         cols="30" rows="10" id='observations'></textarea>
                 </div>
                 <div class="col-span-12 w-full flex justify-end">
