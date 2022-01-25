@@ -7,6 +7,7 @@ use App\Http\Livewire\Admin\Operators\Index;
 use App\Http\Livewire\Admin\Options\Index as OptionsIndex;
 use App\Http\Livewire\Admin\Reports\Index as ReportsIndex;
 use App\Http\Livewire\Admin\Roles\Index as RolesIndex;
+use App\Http\Livewire\Admin\Users\Index as UsersIndex;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,3 +32,4 @@ Route::get('operators', Index::class);
 Route::get('settings', OptionsIndex::class);
 Route::get('reports', ReportsIndex::class);
 Route::get('roles', RolesIndex::class);
+Route::get('users', UsersIndex::class);

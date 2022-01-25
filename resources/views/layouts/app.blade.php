@@ -22,62 +22,42 @@
     <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 
-<body class="flex bg-third">
+<body>
 
-    <nav class=" w-96 max-h-screen flex-col justify-between ">
-        <div class="bg-third h-full">
-            <div class="flex  justify-center py-10 shadow-sm pr-4">
 
-                <div class="pl-2 flex flex-col items-center">
-                    <img src="{{ asset('images/logo1.png') }}" class="w-80" alt="">
-                    <p class="text-3xl font-extrabold text-white">{{ config('app.nameConfig') }}</h1>
-                    <p class="text-base block text-white tracking-widest">{{ config('app.address') }}</p>
-                </div>
+    <div x-data="setup()" x-init="$refs.loading.classList.add('hidden');" :class="{ 'dark': isDark}">
+        <!--  -->
+        <div class="flex h-screen antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light">
+            <!-- Loading screen -->
+            <div x-ref="loading"
+                class="fixed inset-0 z-50 flex items-center justify-center text-2xl font-semibold text-white bg-opacity-90 bg-principal">
+                Loading.....
             </div>
-            <div class="pl-10">
-                <ul class="space-y-8 pt-10">
-                    <li class="flex space-x-4 items-center text-white  hover:text-fourth font-bold text-lg cursor-pointer">
-                        <ion-icon size='small' name="home"></ion-icon>
-                        <a href="/dashboard">Dashboard</a>
-                    </li>
-                    <li class="flex space-x-4 items-center text-white  hover:text-fourth font-bold text-lg cursor-pointer">
-                        <ion-icon size='small' name="newspaper"></ion-icon>
-                        <a href="/reports">Reportes</a>
-                    </li>
-                    <li class="flex space-x-4 items-center text-white  hover:text-fourth font-bold text-lg cursor-pointer">
-                        <ion-icon size='small' name="people"></ion-icon>
-                           <a href="/beneficiaries">Beneficiarios</a>
-                    </li>
-                    <li class="flex space-x-4 items-center text-white  hover:text-fourth font-bold text-lg cursor-pointer">
-                        <ion-icon size='small' name="people"></ion-icon>
-                        <a href="">Usuarios</a>
-                    </li>
-                    <li class="flex space-x-4 items-center text-white  hover:text-fourth font-bold text-lg cursor-pointer">
-                        <ion-icon size='small' name="bookmarks"></ion-icon>
-                        <a href="/roles">Roles</a>
-                    </li>
-                    <li class="flex space-x-4 items-center text-white  hover:text-fourth font-bold text-lg cursor-pointer">
-                        <ion-icon size='small' name="swap-vertical"></ion-icon>
-                        <a href="/operators">Operadores</a>
-                    </li>
-                    <li class="flex space-x-4 items-center text-white  hover:text-fourth font-bold text-lg cursor-pointer">
-                        <ion-icon size='small' name="settings"></ion-icon>
-                        <a href="/settings">Configuraciones</a>
-                    </li>
-                </ul>
+
+            <x-sidebar />
+
+            <div class="flex flex-col flex-1 min-h-screen overflow-x-hidden overflow-y-auto">
+
+                <x-header />
+
+
+                <!-- Main content -->
+                <main>
+                    <div class="px-4 ">
+                        @yield('content')
+                    </div>
+                </main>
+
             </div>
-        </div>
-        
-    </nav>
 
-    <div class="w-full min-h-screen pt-20 bg-secondary">
-        <div class="mx-4">
+            <x-search />
+            <x-notification />
 
-            @yield('content')
-            
+
+
         </div>
     </div>
-    
+
     @livewireScripts
 
     <script src="{{ asset('js/jquery.min.js') }}"></script>
@@ -85,12 +65,80 @@
     <script src="{{ asset('js/chart.min.js') }}"></script>
     <script src="{{ asset('js/select2.min.js') }}"></script>
     <script src="{{ asset('js/sweetalert2.min.js') }}"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.6.x/dist/component.min.js"></script>
+
+
+    <script>
+        const setup = () => {
+            const getTheme = () => {
+                if (window.localStorage.getItem('dark')) {
+                    return JSON.parse(window.localStorage.getItem('dark'))
+                }
+                return !!window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+            }
+
+            const setTheme = (value) => {
+                window.localStorage.setItem('dark', value)
+            }
+
+            return {
+                loading: true,
+                isDark: getTheme(),
+                toggleTheme() {
+                    this.isDark = !this.isDark
+                    setTheme(this.isDark)
+                },
+                setLightTheme() {
+                    this.isDark = false
+                    setTheme(this.isDark)
+                },
+                setDarkTheme() {
+                    this.isDark = true
+                    setTheme(this.isDark)
+                },
+                isSettingsPanelOpen: false,
+                openSettingsPanel() {
+                    this.isSettingsPanelOpen = true
+                    this.$nextTick(() => {
+                        this.$refs.settingsPanel.focus()
+                    })
+                },
+                isNotificationsPanelOpen: false,
+                openNotificationsPanel() {
+                    this.isNotificationsPanelOpen = true
+                    this.$nextTick(() => {
+                        this.$refs.notificationsPanel.focus()
+                    })
+                },
+                isSearchPanelOpen: false,
+                openSearchPanel() {
+                    this.isSearchPanelOpen = true
+                    this.$nextTick(() => {
+                        this.$refs.searchInput.focus()
+                    })
+                },
+                isMobileSubMenuOpen: false,
+                openMobileSubMenu() {
+                    this.isMobileSubMenuOpen = true
+                    this.$nextTick(() => {
+                        this.$refs.mobileSubMenu.focus()
+                    })
+                },
+                isMobileMainMenuOpen: false,
+                openMobileMainMenu() {
+                    this.isMobileMainMenuOpen = true
+                    this.$nextTick(() => {
+                        this.$refs.mobileMainMenu.focus()
+                    })
+                },
+            }
+        }
+    </script>
 
     @yield('js')
 
-    
+
 </body>
 
 </html>

@@ -15,11 +15,11 @@ module.exports = {
             },
 
             colors: {
-                'principal': '#0a89a0',
-                'secondary': '#0e5062',
-                'third': '#112730',
-                'fourth': '#05cfe9',
-                'five': '#0ffff8',
+                'principal': '#1c003b',
+                'secondary': '#4b0374',
+                'third': '#7f00b2',
+                'fourth': '#bc4ed8',
+                'five': '#f988ff',
             },
         },
     },
