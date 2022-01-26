@@ -8,6 +8,7 @@ use App\Http\Livewire\Admin\Operators\Index;
 use App\Http\Livewire\Admin\Options\Index as OptionsIndex;
 use App\Http\Livewire\Admin\Reports\Index as ReportsIndex;
 use App\Http\Livewire\Admin\Roles\Index as RolesIndex;
+use App\Http\Livewire\Admin\Users\Create as UsersCreate;
 use App\Http\Livewire\Admin\Users\Index as UsersIndex;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,7 @@ Route::get('dashboard', Dashboard::class);
 Route::get('beneficiaries', Beneficiary::class);
 Route::get('beneficiaries/create', Create::class);
 Route::get('operators/create', OperatorsCreate::class);
+Route::get('users/create', UsersCreate::class);
 Route::get('operators', Index::class);
 Route::get('settings', OptionsIndex::class);
 Route::get('reports', ReportsIndex::class);

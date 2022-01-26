@@ -1,156 +1,62 @@
 <div>
-    <div class="grid  place-items-center">
-        <div class="w-11/12 p-12 bg-white sm:w-8/12 md:w-1/2 lg:w-full flex">
-            <div class="w-1/2 border-r-2 p-5">
-                <h1 class="text-xl font-semibold">la creacion de usuarios son para los diferentes operadores que estaran
-                    en constante conexion con la aplicacion</h1>
-                <form class="mt-6 ">
-                    <div class="flex justify-between gap-3">
-                        <span class="w-1/2">
-                            <label for="firstname"
-                                class="block text-xs font-semibold text-gray-600 uppercase">Firstname</label>
-                            <input id="firstname" type="text" name="firstname" placeholder="John"
-                                autocomplete="given-name"
-                                class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
-                                required />
-                        </span>
-                        <span class="w-1/2">
-                            <label for="lastname"
-                                class="block text-xs font-semibold text-gray-600 uppercase">Lastname</label>
-                            <input id="lastname" type="text" name="lastname" placeholder="Doe"
-                                autocomplete="family-name"
-                                class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
-                                required />
-                        </span>
-                    </div>
-                    <label for="email" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">E-mail</label>
-                    <input id="email" type="email" name="email" placeholder="john.doe@company.com" autocomplete="email"
-                        class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
-                        required />
-                    <label for="password"
-                        class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Password</label>
-                    <input id="password" type="password" name="password" placeholder="********"
-                        autocomplete="new-password"
-                        class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
-                        required />
-                    <label for="password-confirm"
-                        class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Confirm
-                        password</label>
-                    <input id="password-confirm" type="password" name="password-confirm" placeholder="********"
-                        autocomplete="new-password"
-                        class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner"
-                        required />
-                    <button type="submit"
-                        class="w-full py-3 mt-6 font-medium tracking-widest text-white uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none">
-                        Sign up
-                    </button>
-                    <p
-                        class="flex justify-between mt-4 text-xs text-gray-500 cursor-pointer hover:text-black">
-                        Already registered?</p>
-                </form>
-            </div>
-            <div class="w-1/2 p-5 grid grid-cols-3 gap-6">
-                <section class="w-64 mx-auto bg-[#20354b] rounded-2xl px-8 py-6 shadow-lg">
-                    <div class="flex items-center justify-between">
-                        <span class="text-gray-400 text-sm">2d ago</span>
-                        <span class="text-emerald-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
-                            </svg>
-                        </span>
-                    </div>
-                    <div class="mt-6 w-fit mx-auto">
-                        <img src="https://api.lorem.space/image/face?w=120&h=120&hash=bart89fe"
-                            class="rounded-full w-28 " alt="profile picture" srcset="">
-                    </div>
+    <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">
+        <div
+            class="align-middle inline-block min-w-full overflow-hidden  shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg">
+            <table class="min-w-full">
+                <thead>
+                    <tr>
+                        <th
+                            class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">
+                            ID</th>
+                        <th
+                            class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">
+                            Nombre</th>
+                        <th
+                            class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">
+                            Email</th>
+                        <th
+                            class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">
+                            Rol</th>
+                        <th class="px-6 py-3 border-b-2 border-gray-300"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse ($users as $user)
+                        <tr>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                <div class="flex items-center">
+                                    <div>
+                                        <div class="text-sm leading-5 text-gray-800">{{ $user->id }}</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                                <div class="text-sm leading-5 text-blue-900">{{ $user->name }}</div>
+                            </td>
+                            <td
+                                class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
+                                {{ $user->email }}</td>
+                            <td
+                                class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5">
+                                @if (!empty($user->getRoleNames()))
+                                    @foreach ($user->getRoleNames() as $rolName)
+                                        <h5><span class="badge badge-drak">{{ $rolName }} </span></h5>
+                                    @endforeach
+                                @endif
+                            </td>
+                            <td
+                                class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
+                                <button
+                                    class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">View
+                                    Details</button>
+                            </td>
+                        </tr>
+                    @empty
+                        No se encuentran usuarios registrador
+                    @endforelse
 
-                    <div class="mt-8 ">
-                        <h2 class="text-white font-bold text-2xl tracking-wide">Jonathan <br /> Smith</h2>
-                    </div>
-                    <p class="text-emerald-400 font-semibold mt-2.5">
-                        Active
-                    </p>
-
-
-                </section>
-                <section class="w-64 mx-auto bg-[#20354b] rounded-2xl px-8 py-6 shadow-lg">
-                    <div class="flex items-center justify-between">
-                        <span class="text-gray-400 text-sm">2d ago</span>
-                        <span class="text-emerald-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
-                            </svg>
-                        </span>
-                    </div>
-                    <div class="mt-6 w-fit mx-auto">
-                        <img src="https://api.lorem.space/image/face?w=120&h=120&hash=bart89fe"
-                            class="rounded-full w-28 " alt="profile picture" srcset="">
-                    </div>
-
-                    <div class="mt-8 ">
-                        <h2 class="text-white font-bold text-2xl tracking-wide">Jonathan <br /> Smith</h2>
-                    </div>
-                    <p class="text-emerald-400 font-semibold mt-2.5">
-                        Active
-                    </p>
-
-
-                </section>
-                <section class="w-64 mx-auto bg-[#20354b] rounded-2xl px-8 py-6 shadow-lg">
-                    <div class="flex items-center justify-between">
-                        <span class="text-gray-400 text-sm">2d ago</span>
-                        <span class="text-emerald-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
-                            </svg>
-                        </span>
-                    </div>
-                    <div class="mt-6 w-fit mx-auto">
-                        <img src="https://api.lorem.space/image/face?w=120&h=120&hash=bart89fe"
-                            class="rounded-full w-28 " alt="profile picture" srcset="">
-                    </div>
-
-                    <div class="mt-8 ">
-                        <h2 class="text-white font-bold text-2xl tracking-wide">Jonathan <br /> Smith</h2>
-                    </div>
-                    <p class="text-emerald-400 font-semibold mt-2.5">
-                        Active
-                    </p>
-
-
-                </section>
-                <section class="w-64 mx-auto bg-[#20354b] rounded-2xl px-8 py-6 shadow-lg">
-                    <div class="flex items-center justify-between">
-                        <span class="text-gray-400 text-sm">2d ago</span>
-                        <span class="text-emerald-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
-                            </svg>
-                        </span>
-                    </div>
-                    <div class="mt-6 w-fit mx-auto">
-                        <img src="https://api.lorem.space/image/face?w=120&h=120&hash=bart89fe"
-                            class="rounded-full w-28 " alt="profile picture" srcset="">
-                    </div>
-
-                    <div class="mt-8 ">
-                        <h2 class="text-white font-bold text-2xl tracking-wide">Jonathan <br /> Smith</h2>
-                    </div>
-                    <p class="text-emerald-400 font-semibold mt-2.5">
-                        Active
-                    </p>
-
-
-                </section>
-            </div>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

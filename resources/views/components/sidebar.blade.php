@@ -65,67 +65,73 @@
                 </div>
             </div>
 
-            <div x-data="{ isActive: false, open: false}">
-                <a href="#" @click="$event.preventDefault(); open = !open"
-                    class="flex items-center p-2 text-white transition-colors rounded-md  hover:bg-white hover:text-principal "
-                    :class="{'bg-white text-principal': isActive || open}" role="button" aria-haspopup="true"
-                    :aria-expanded="(open || isActive) ? 'true' : 'false'">
-                    <span aria-hidden="true">
-                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="512" height="512"
-                            viewBox="0 0 512 512">
-                            <line x1="176" y1="416" x2="176" y2="480"
-                                style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
-                            <path
-                                d="M80,32H272a32,32,0,0,1,32,32V476a4,4,0,0,1-4,4H48a0,0,0,0,1,0,0V64A32,32,0,0,1,80,32Z"
-                                style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
-                            <path
-                                d="M320,192H432a32,32,0,0,1,32,32V480a0,0,0,0,1,0,0H304a0,0,0,0,1,0,0V208A16,16,0,0,1,320,192Z"
-                                style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
-                            <path d="M98.08,431.87a16,16,0,1,1,13.79-13.79A16,16,0,0,1,98.08,431.87Z" />
-                            <path d="M98.08,351.87a16,16,0,1,1,13.79-13.79A16,16,0,0,1,98.08,351.87Z" />
-                            <path d="M98.08,271.87a16,16,0,1,1,13.79-13.79A16,16,0,0,1,98.08,271.87Z" />
-                            <path d="M98.08,191.87a16,16,0,1,1,13.79-13.79A16,16,0,0,1,98.08,191.87Z" />
-                            <path d="M98.08,111.87a16,16,0,1,1,13.79-13.79A16,16,0,0,1,98.08,111.87Z" />
-                            <path d="M178.08,351.87a16,16,0,1,1,13.79-13.79A16,16,0,0,1,178.08,351.87Z" />
-                            <path d="M178.08,271.87a16,16,0,1,1,13.79-13.79A16,16,0,0,1,178.08,271.87Z" />
-                            <path d="M178.08,191.87a16,16,0,1,1,13.79-13.79A16,16,0,0,1,178.08,191.87Z" />
-                            <path d="M178.08,111.87a16,16,0,1,1,13.79-13.79A16,16,0,0,1,178.08,111.87Z" />
-                            <path d="M258.08,431.87a16,16,0,1,1,13.79-13.79A16,16,0,0,1,258.08,431.87Z" />
-                            <path d="M258.08,351.87a16,16,0,1,1,13.79-13.79A16,16,0,0,1,258.08,351.87Z" />
-                            <path d="M258.08,271.87a16,16,0,1,1,13.79-13.79A16,16,0,0,1,258.08,271.87Z" />
-                            <ellipse cx="256" cy="176" rx="15.95" ry="16.03"
-                                transform="translate(-49.47 232.56) rotate(-45)" />
-                            <path d="M258.08,111.87a16,16,0,1,1,13.79-13.79A16,16,0,0,1,258.08,111.87Z" />
-                            <path d="M400,400a16,16,0,1,0,16,16,16,16,0,0,0-16-16Z" />
-                            <path d="M400,320a16,16,0,1,0,16,16,16,16,0,0,0-16-16Z" />
-                            <path d="M400,240a16,16,0,1,0,16,16,16,16,0,0,0-16-16Z" />
-                            <path d="M336,400a16,16,0,1,0,16,16,16,16,0,0,0-16-16Z" />
-                            <path d="M336,320a16,16,0,1,0,16,16,16,16,0,0,0-16-16Z" />
-                            <path d="M336,240a16,16,0,1,0,16,16,16,16,0,0,0-16-16Z" />
-                        </svg>
-                    </span>
-                    <span class="ml-2 text-sm font-bold"> Operadores </span>
-                    <span class="ml-auto" aria-hidden="true">
-                        <!-- active class 'rotate-180' -->
-                        <svg class="w-4 h-4 transition-transform transform" :class="{ 'rotate-180': open }"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </span>
-                </a>
-                <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="Dashboards">
-                    <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                    <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                    <a href="/operators" role="menuitem"
-                        class="block p-2 text-sm text-white font-bold transition-colors duration-200 rounded-md  hover:underline">
-                        Operadores en ejecucion
+            @if (auth()->user()->can('operators'))
+                <div x-data="{ isActive: false, open: false}">
+                    <a href="#" @click="$event.preventDefault(); open = !open"
+                        class="flex items-center p-2 text-white transition-colors rounded-md  hover:bg-white hover:text-principal "
+                        :class="{'bg-white text-principal': isActive || open}" role="button" aria-haspopup="true"
+                        :aria-expanded="(open || isActive) ? 'true' : 'false'">
+                        <span aria-hidden="true">
+                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="512" height="512"
+                                viewBox="0 0 512 512">
+                                <line x1="176" y1="416" x2="176" y2="480"
+                                    style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                <path
+                                    d="M80,32H272a32,32,0,0,1,32,32V476a4,4,0,0,1-4,4H48a0,0,0,0,1,0,0V64A32,32,0,0,1,80,32Z"
+                                    style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                <path
+                                    d="M320,192H432a32,32,0,0,1,32,32V480a0,0,0,0,1,0,0H304a0,0,0,0,1,0,0V208A16,16,0,0,1,320,192Z"
+                                    style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                <path d="M98.08,431.87a16,16,0,1,1,13.79-13.79A16,16,0,0,1,98.08,431.87Z" />
+                                <path d="M98.08,351.87a16,16,0,1,1,13.79-13.79A16,16,0,0,1,98.08,351.87Z" />
+                                <path d="M98.08,271.87a16,16,0,1,1,13.79-13.79A16,16,0,0,1,98.08,271.87Z" />
+                                <path d="M98.08,191.87a16,16,0,1,1,13.79-13.79A16,16,0,0,1,98.08,191.87Z" />
+                                <path d="M98.08,111.87a16,16,0,1,1,13.79-13.79A16,16,0,0,1,98.08,111.87Z" />
+                                <path d="M178.08,351.87a16,16,0,1,1,13.79-13.79A16,16,0,0,1,178.08,351.87Z" />
+                                <path d="M178.08,271.87a16,16,0,1,1,13.79-13.79A16,16,0,0,1,178.08,271.87Z" />
+                                <path d="M178.08,191.87a16,16,0,1,1,13.79-13.79A16,16,0,0,1,178.08,191.87Z" />
+                                <path d="M178.08,111.87a16,16,0,1,1,13.79-13.79A16,16,0,0,1,178.08,111.87Z" />
+                                <path d="M258.08,431.87a16,16,0,1,1,13.79-13.79A16,16,0,0,1,258.08,431.87Z" />
+                                <path d="M258.08,351.87a16,16,0,1,1,13.79-13.79A16,16,0,0,1,258.08,351.87Z" />
+                                <path d="M258.08,271.87a16,16,0,1,1,13.79-13.79A16,16,0,0,1,258.08,271.87Z" />
+                                <ellipse cx="256" cy="176" rx="15.95" ry="16.03"
+                                    transform="translate(-49.47 232.56) rotate(-45)" />
+                                <path d="M258.08,111.87a16,16,0,1,1,13.79-13.79A16,16,0,0,1,258.08,111.87Z" />
+                                <path d="M400,400a16,16,0,1,0,16,16,16,16,0,0,0-16-16Z" />
+                                <path d="M400,320a16,16,0,1,0,16,16,16,16,0,0,0-16-16Z" />
+                                <path d="M400,240a16,16,0,1,0,16,16,16,16,0,0,0-16-16Z" />
+                                <path d="M336,400a16,16,0,1,0,16,16,16,16,0,0,0-16-16Z" />
+                                <path d="M336,320a16,16,0,1,0,16,16,16,16,0,0,0-16-16Z" />
+                                <path d="M336,240a16,16,0,1,0,16,16,16,16,0,0,0-16-16Z" />
+                            </svg>
+                        </span>
+                        <span class="ml-2 text-sm font-bold"> Operadores </span>
+                        <span class="ml-auto" aria-hidden="true">
+                            <!-- active class 'rotate-180' -->
+                            <svg class="w-4 h-4 transition-transform transform" :class="{ 'rotate-180': open }"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </span>
                     </a>
-                    <a href="/operators/create" role="menuitem"
-                        class="block p-2 text-sm text-white font-bold transition-colors duration-200 rounded-md  hover:underline">
-                        Implementacion de nuevo operador
-                    </a>
+                    <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="Dashboards">
+                        <!-- active & hover classes 'text-gray-700 dark:text-light' -->
+                        <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
+                        <a href="/operators" role="menuitem"
+                            class="block p-2 text-sm text-white font-bold transition-colors duration-200 rounded-md  hover:underline">
+                            Operadores en ejecucion
+                        </a>
+                        <a href="/operators/create" role="menuitem"
+                            class="block p-2 text-sm text-white font-bold transition-colors duration-200 rounded-md  hover:underline">
+                            Implementacion de nuevo operador
+                        </a>
+                    </div>
                 </div>
-            </div>
+            @endif
+
+
 
             <div x-data="{ isActive: false, open: false}">
                 <a href="#" @click="$event.preventDefault(); open = !open"
@@ -212,18 +218,19 @@
                 <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="Dashboards">
                     <!-- active & hover classes 'text-gray-700 dark:text-light' -->
                     <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                    <a href="/operators" role="menuitem"
+                    <a href="/users" role="menuitem"
                         class="block p-2 text-sm text-white font-bold transition-colors duration-200 rounded-md  hover:underline">
                         Usuarios registrados
                     </a>
-                    <a href="/beneficiaries/create" role="menuitem"
+                    <a href="/users/create" role="menuitem"
                         class="block p-2 text-sm text-white font-bold transition-colors duration-200 rounded-md  hover:underline">
                         Crear nuevo usuario
                     </a>
                 </div>
             </div>
 
-            <a href="/roles" class="flex items-center p-2 text-white transition-colors rounded-md  hover:bg-white hover:text-principal "
+            <a href="/roles"
+                class="flex items-center p-2 text-white transition-colors rounded-md  hover:bg-white hover:text-principal "
                 :class="{'bg-white text-principal': isActive || open}" role="button" aria-haspopup="true"
                 :aria-expanded="(open || isActive) ? 'true' : 'false'">
                 <span aria-hidden="true">
