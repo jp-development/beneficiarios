@@ -1,5 +1,5 @@
-<header class="relative bg-white dark:bg-darker">
-    <div class="flex items-center justify-between lg:justify-end p-2 border-b dark:border-blue-800">
+<header class="relative bg-two dark:bg-darker">
+    <div class="flex items-center justify-between lg:justify-end p-2">
         <!-- Mobile menu button -->
         <button @click="isMobileMainMenuOpen = !isMobileMainMenuOpen"
             class="p-1 text-blue-400 transition-colors duration-200 rounded-md bg-blue-50 hover:text-blue-600 hover:bg-blue-100 dark:hover:text-light dark:hover:bg-blue-700 dark:bg-dark md:hidden focus:outline-none focus:ring">
@@ -31,7 +31,7 @@
 
             <!-- Notification button -->
             <button @click="openNotificationsPanel"
-                class="p-2 w-10 h-10 text-white transition-colors duration-200 rounded-full bg-principal/50 flex justify-center items-center hover:bg-principal/70  b dark:hover:text-light dark:hover:bg-blue-700 dark:bg-dark focus:outline-none focus:bg-blue-100 dark:focus:bg-blue-700 focus:ring-blue-800">
+                class="p-2 w-10 h-10 text-white transition-colors duration-200 rounded-full bg-principal flex justify-center items-center hover:bg-principal/70  b dark:hover:text-light dark:hover:bg-blue-700 dark:bg-dark focus:outline-none focus:bg-blue-100 dark:focus:bg-blue-700 focus:ring-blue-800">
                 <span class="sr-only">Open Notification panel</span>
                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
                     <title>ionicons-v5-j</title>
@@ -45,7 +45,7 @@
 
             <!-- Search button -->
             <button @click="openSearchPanel"
-                class="p-2 w-10 h-10 text-white transition-colors duration-200 rounded-full bg-principal/50 flex justify-center items-center hover:bg-principal/70   dark:hover:text-light dark:hover:bg-blue-700 dark:bg-dark focus:outline-none focus:bg-blue-100 dark:focus:bg-blue-700 focus:ring-blue-800">
+                class="p-2 w-10 h-10 text-white transition-colors duration-200 rounded-full bg-principal flex justify-center items-center hover:bg-principal/70   dark:hover:text-light dark:hover:bg-blue-700 dark:bg-dark focus:outline-none focus:bg-blue-100 dark:focus:bg-blue-700 focus:ring-blue-800">
                 <span class="sr-only">Open search panel</span>
                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="512" height="512"
                     viewBox="0 0 512 512">
@@ -58,7 +58,7 @@
             </button>
 
             <!-- User avatar button -->
-            <div class="relative" x-data="{ open: false }">
+            <div class="relative flex justify-center items-center" x-data="{ open: false }">
                 <button @click="open = !open; $nextTick(() => { if(open){ $refs.userMenu.focus() } })" type="button"
                     aria-haspopup="true" :aria-expanded="open ? 'true' : 'false'"
                     class="transition-opacity duration-200 rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100">

@@ -10,11 +10,11 @@
         <nav aria-label="Main" class="flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto">
             <!-- Dashboards links -->
             <a href="/dashboard"
-                class="flex items-center p-2 text-white transition-colors rounded-md  hover:bg-secondary "
-                :class="{'bg-secondary ': isActive || open}" role="button" aria-haspopup="true"
+                class="flex items-center p-2 text-white transition-colors rounded-md  hover:bg-white hover:text-principal "
+                :class="{'bg-white text-principal': isActive || open}" role="button" aria-haspopup="true"
                 :aria-expanded="(open || isActive) ? 'true' : 'false'">
                 <span aria-hidden="true">
-                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="512" height="512"
+                    <svg class="w-5 h-5 " xmlns="http://www.w3.org/2000/svg" width="512" height="512"
                         viewBox="0 0 512 512">
                         <path
                             d="M80,212V448a16,16,0,0,0,16,16h96V328a24,24,0,0,1,24-24h80a24,24,0,0,1,24,24V464h96a16,16,0,0,0,16-16V212"
@@ -30,8 +30,8 @@
 
             <div x-data="{ isActive: false, open: false}">
                 <a href="#" @click="$event.preventDefault(); open = !open"
-                    class="flex items-center p-2 text-white transition-colors rounded-md  hover:bg-secondary "
-                    :class="{'bg-secondary ': isActive || open}" role="button" aria-haspopup="true"
+                    class="flex items-center p-2 text-white transition-colors rounded-md  hover:bg-white hover:text-principal "
+                    :class="{'bg-white text-principal': isActive || open}" role="button" aria-haspopup="true"
                     :aria-expanded="(open || isActive) ? 'true' : 'false'">
                     <span aria-hidden="true">
                         <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="512" height="512"
@@ -55,11 +55,11 @@
                     <!-- active & hover classes 'text-gray-700 dark:text-light' -->
                     <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
                     <a href="/beneficiaries" role="menuitem"
-                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md  hover:text-white">
+                        class="block p-2 text-sm text-white font-bold transition-colors duration-200 rounded-md  hover:underline">
                         Beneficiarios inscritos
                     </a>
                     <a href="/beneficiaries/create" role="menuitem"
-                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md  hover:text-white">
+                        class="block p-2 text-sm text-white font-bold transition-colors duration-200 rounded-md  hover:underline">
                         Creacion de beneficiario
                     </a>
                 </div>
@@ -67,8 +67,8 @@
 
             <div x-data="{ isActive: false, open: false}">
                 <a href="#" @click="$event.preventDefault(); open = !open"
-                    class="flex items-center p-2 text-white transition-colors rounded-md  hover:bg-secondary "
-                    :class="{'bg-secondary ': isActive || open}" role="button" aria-haspopup="true"
+                    class="flex items-center p-2 text-white transition-colors rounded-md  hover:bg-white hover:text-principal "
+                    :class="{'bg-white text-principal': isActive || open}" role="button" aria-haspopup="true"
                     :aria-expanded="(open || isActive) ? 'true' : 'false'">
                     <span aria-hidden="true">
                         <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="512" height="512"
@@ -117,11 +117,11 @@
                     <!-- active & hover classes 'text-gray-700 dark:text-light' -->
                     <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
                     <a href="/operators" role="menuitem"
-                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md  hover:text-white">
+                        class="block p-2 text-sm text-white font-bold transition-colors duration-200 rounded-md  hover:underline">
                         Operadores en ejecucion
                     </a>
                     <a href="/beneficiaries/create" role="menuitem"
-                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md  hover:text-white">
+                        class="block p-2 text-sm text-white font-bold transition-colors duration-200 rounded-md  hover:underline">
                         Implementacion de nuevo operador
                     </a>
                 </div>
@@ -129,8 +129,8 @@
 
             <div x-data="{ isActive: false, open: false}">
                 <a href="#" @click="$event.preventDefault(); open = !open"
-                    class="flex items-center p-2 text-white transition-colors rounded-md  hover:bg-secondary "
-                    :class="{'bg-secondary ': isActive || open}" role="button" aria-haspopup="true"
+                    class="flex items-center p-2 text-white transition-colors rounded-md  hover:bg-white hover:text-principal "
+                    :class="{'bg-white text-principal': isActive || open}" role="button" aria-haspopup="true"
                     :aria-expanded="(open || isActive) ? 'true' : 'false'">
                     <span aria-hidden="true">
                         <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="512" height="512"
@@ -168,11 +168,11 @@
                     <!-- active & hover classes 'text-gray-700 dark:text-light' -->
                     <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
                     <a href="/reports" role="menuitem"
-                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md  hover:text-white">
+                        class="block p-2 text-sm text-white font-bold transition-colors duration-200 rounded-md  hover:underline">
                         Tipos de reporte
                     </a>
                     <a href="/beneficiaries/create" role="menuitem"
-                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md  hover:text-white">
+                        class="block p-2 text-sm text-white font-bold transition-colors duration-200 rounded-md  hover:underline">
                         Reportes generados
                     </a>
                 </div>
@@ -180,8 +180,8 @@
 
             <div x-data="{ isActive: false, open: false}">
                 <a href="#" @click="$event.preventDefault(); open = !open"
-                    class="flex items-center p-2 text-white transition-colors rounded-md  hover:bg-secondary "
-                    :class="{'bg-secondary ': isActive || open}" role="button" aria-haspopup="true"
+                    class="flex items-center p-2 text-white transition-colors rounded-md  hover:bg-white hover:text-principal "
+                    :class="{'bg-white text-principal': isActive || open}" role="button" aria-haspopup="true"
                     :aria-expanded="(open || isActive) ? 'true' : 'false'">
                     <span aria-hidden="true">
                         <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="512" height="512"
@@ -213,18 +213,18 @@
                     <!-- active & hover classes 'text-gray-700 dark:text-light' -->
                     <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
                     <a href="/operators" role="menuitem"
-                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md  hover:text-white">
+                        class="block p-2 text-sm text-white font-bold transition-colors duration-200 rounded-md  hover:underline">
                         Usuarios registrados
                     </a>
                     <a href="/beneficiaries/create" role="menuitem"
-                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md  hover:text-white">
+                        class="block p-2 text-sm text-white font-bold transition-colors duration-200 rounded-md  hover:underline">
                         Crear nuevo usuario
                     </a>
                 </div>
             </div>
 
-            <a href="/roles" class="flex items-center p-2 text-white transition-colors rounded-md  hover:bg-secondary "
-                :class="{'bg-secondary ': isActive || open}" role="button" aria-haspopup="true"
+            <a href="/roles" class="flex items-center p-2 text-white transition-colors rounded-md  hover:bg-white hover:text-principal "
+                :class="{'bg-white text-principal': isActive || open}" role="button" aria-haspopup="true"
                 :aria-expanded="(open || isActive) ? 'true' : 'false'">
                 <span aria-hidden="true">
                     <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="512" height="512"
@@ -239,8 +239,8 @@
             </a>
 
             <a href="/settings"
-                class="flex items-center p-2 text-white transition-colors rounded-md  hover:bg-secondary "
-                :class="{'bg-secondary ': isActive || open}" role="button" aria-haspopup="true"
+                class="flex items-center p-2 text-white transition-colors rounded-md  hover:bg-white hover:text-principal "
+                :class="{'bg-white text-principal': isActive || open}" role="button" aria-haspopup="true"
                 :aria-expanded="(open || isActive) ? 'true' : 'false'">
                 <span aria-hidden="true">
                     <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="512" height="512"
@@ -252,6 +252,10 @@
                 </span>
                 <span class="ml-2 text-sm font-bold"> Configuraciones </span>
             </a>
+
+
+
+
         </nav>
     </div>
 </aside>
