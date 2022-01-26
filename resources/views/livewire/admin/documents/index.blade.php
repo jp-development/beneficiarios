@@ -1,24 +1,42 @@
 <div>
     <div class='flex justify-between'>
-        <h5 class="text-third text-2xl font-bold">Documentos</h5>
+        <h5 class="text-principal text-2xl font-bold">Documentos</h5>
         <button class="bg-principal text-white text-base font-bold p-2 rounded-md"
             wire:click='$set("openModal","true")'>Agregar nuevo documento</button>
     </div>
 
     <div class='my-5'>
-        @forelse ($documents as $document)
-            <div class="flex justify-between items-center my-3">
-                <div class="flex items-center gap-4">
-                    <img src="{{ asset('images/documentos.png') }}" class="w-16" alt="">
-                    <h5 class="text-2xl font-bold">{{ $document->name }}</h5>
-                </div>
-                <div>
-                    <button wire:click.prevent='$emit("deleteDocument",{{ $document->id }})' class="bg-red-600 p-2 rounded-md text-white font-medium">Eliminar documento</button>
-                </div>
-            </div>
-        @empty
+        <table class="min-w-full">
+            <thead>
+                <tr>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">
+                        Name
+                    </th>
+                    <th
+                        class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse ($documents as $document)
+                    <tr>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                            <div class="flex items-center">
+                                {{ $document->name }}
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                            <div class="text-sm leading-5 text-blue-900">
+                                <button class="p-2 text-white font-bold bg-red-600 rounded hover:bg-red-500" wire:click.prevent='$emit("deleteDocument", {{ $document->id }})'>Eliminar documento</button>
+                            </div>
+                        </td>
+                    </tr>
+                @empty
 
-        @endforelse
+                @endforelse
+            </tbody>
+        </table>
+
     </div>
     <x-jet-dialog-modal wire:model='openModal'>
         @slot('title')
