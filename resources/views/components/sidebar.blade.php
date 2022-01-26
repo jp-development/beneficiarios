@@ -120,7 +120,7 @@
                         class="block p-2 text-sm text-white font-bold transition-colors duration-200 rounded-md  hover:underline">
                         Operadores en ejecucion
                     </a>
-                    <a href="/beneficiaries/create" role="menuitem"
+                    <a href="/operators/create" role="menuitem"
                         class="block p-2 text-sm text-white font-bold transition-colors duration-200 rounded-md  hover:underline">
                         Implementacion de nuevo operador
                     </a>

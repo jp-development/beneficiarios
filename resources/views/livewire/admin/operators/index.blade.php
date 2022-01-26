@@ -1,82 +1,47 @@
 <div>
-    <div class="w-full bg-white p-2 rounded-md my-10 flex">
-        <div class="w-[50%] border-r-2 p-2">
-            <h5 class="font-bold text-xl">Crear nuevo operador</h5>
-            <form wire:submit.prevent='create'>
-                <div class="my-5 flex">
-                    <input type="text" class="m-2 w-full border-b-4 border-third p-2 text-lg focus:outline-none"
-                        placeholder='Nombre del operador' wire:model.lazy='name'>
-                </div>
-                <div class="my-5 flex">
-                    <input type="text" class="m-2 w-full border-b-4 border-third p-2 text-lg focus:outline-none"
-                        placeholder='Regional' wire:model.lazy='regional'>
-                    <input type="text" class="m-2 w-full border-b-4 border-third p-2 text-lg focus:outline-none"
-                        placeholder='Centro Zonal' wire:model.lazy='zonalCenter'>
-                </div>
-                <div class="my-5 flex">
-                    <select wire:model.lazy='municipality'
-                        class="bg-white m-2 w-full border-b-4 border-third p-2 text-lg focus:outline-none"
-                        style="width: 100%; ;">
-                        <option value="">Municipio</option>
-                        <option value="cartagena">Cartagena</option>
-                    </select>
-                </div>
-                <div class="my-5 flex">
-                    <input type="text" class="m-2 w-full border-b-4 border-third p-2 text-lg focus:outline-none"
-                        placeholder='Modalidad de atencion' wire:model.lazy='attentionModality'>
-                </div>
-                <div class="my-5 flex">
-                    <textarea placeholder="Poblacion dirigida" wire:model.lazy='population'
-                        class="m-2 w-full border-4 rounded-md border-third p-2 text-lg focus:outline-none" cols="30"
-                        rows="3"></textarea>
-                </div>
-                <div class="my-5 flex">
-                    <input type="text" class="m-2 w-full border-b-4 border-third p-2 text-lg focus:outline-none"
-                        placeholder='Numero de contrato' wire:model.lazy='contractNumber'>
-                    <input type="text" class="m-2 w-full border-b-4 border-third p-2 text-lg focus:outline-none"
-                        placeholder='Institucion' wire:model.lazy='institution'>
-                </div>
-                <div class="my-5 flex">
-                    <input type="text" class="m-2 w-full border-b-4 border-third p-2 text-lg focus:outline-none"
-                        placeholder='Sede' wire:model.lazy='campus'>
-                    <input type="tel" class="m-2 w-full border-b-4 border-third p-2 text-lg focus:outline-none"
-                        placeholder='Telefono' wire:model.lazy='phone'>
-                </div>
-                <div class="my-5 flex">
-                    <input type="text" class="m-2 w-full border-b-4 border-third p-2 text-lg focus:outline-none"
-                        placeholder='Direccion' wire:model.lazy='address'>
-                </div>
-                <div class="my-5 flex">
-                    <input type="text" class="m-2 w-full border-b-4 border-third p-2 text-lg focus:outline-none"
-                        placeholder='Responsable del programa' wire:model.lazy='responsable'>
-                </div>
-                <div class="my-5 flex">
-                    <input type="text" class="m-2 w-full border-b-4 border-third p-2 text-lg focus:outline-none"
-                        placeholder='Correo electronico' wire:model.lazy='email'>
-                </div>
-                <div class="my-5 flex justify-end">
-                    <button type="submit" class="bg-fourth text-lg text-white p-2 rounded-md font-semibold">Crear nuevo
-                        operador</button>
-                </div>
-            </form>
-        </div>
+    <div class="w-full  p-2 rounded-md my-10 flex">
         <div class="w-full p-8">
-            <h5 class="text-center text-2xl font-bold">Operadores</h5>
+            <h5 class="text-center text-4xl leading-7 font-bold">Operadores</h5>
             <div class="w-full grid grid-cols-3 gap-3 my-5">
                 @forelse ($operators as $operator)
-                    <div class="w-full p-3">
-                        <div>
-                            <img class="w-full" src="{{ asset('images/campus.png') }}" alt="">
-                        </div>
-                        <h5 class="text-xl text-center font-bold mt-2">{{ $operator->name }}</h5>
-                        <p class="text-lg text-center font-bold text-principal">{{ $operator->regional }}</p>
-                        <div class="my-2">
-                            <a href=""
-                                class="p-3 bg-principal
-                          text-white rounded-md font-bold">Ver
-                                operador</a>
-                            <button wire:click.prevent='$emit("deleteOperator", {{ $operator->id }})'
-                                class="p-3 bg-secondary text-white rounded-md font-bold">Eliminar operador</button>
+                    <div
+                        class=" bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                        <div class="flex flex-col items-center py-10">
+                            <img class="mb-3 w-24 h-24 rounded-full shadow-lg" src="{{ asset('images/campus.png') }}"
+                                alt="Bonnie image" />
+                            <h3 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{ $operator->name }}</h3>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">{{ $operator->address }}</span>
+                            <div class="flex mt-4 space-x-3 lg:mt-6">
+                                <button wire:click.prevent='$emit("deleteOperator", {{ $operator->id }})'
+                                    class="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-white bg-principal rounded-lg hover:bg-principal/70 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                        viewBox="0 0 512 512">
+                                        <path
+                                            d="M112,112l20,320c.95,18.49,14.4,32,32,32H348c17.67,0,30.87-13.51,32-32l20-320"
+                                            style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                        <line x1="80" y1="112" x2="432" y2="112"
+                                            style="stroke:#fff;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px" />
+                                        <path d="M192,112V72h0a23.93,23.93,0,0,1,24-24h80a23.93,23.93,0,0,1,24,24h0v40"
+                                            style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                        <line x1="256" y1="176" x2="256" y2="400"
+                                            style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                        <line x1="184" y1="176" x2="192" y2="400"
+                                            style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                        <line x1="328" y1="176" x2="320" y2="400"
+                                            style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                    </svg>Eliminar operador
+                                </button>
+                                <a href="#"
+                                    class="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-gray-900 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-blue-300 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-800"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                        viewBox="0 0 512 512">
+                                        <path
+                                            d="M255.66,112c-77.94,0-157.89,45.11-220.83,135.33a16,16,0,0,0-.27,17.77C82.92,340.8,161.8,400,255.66,400,348.5,400,429,340.62,477.45,264.75a16.14,16.14,0,0,0,0-17.47C428.89,172.28,347.8,112,255.66,112Z"
+                                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                        <circle cx="256" cy="256" r="80"
+                                            style="fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:32px" />
+                                    </svg>Ver Operador</a>
+                            </div>
                         </div>
                     </div>
                 @empty
@@ -92,15 +57,6 @@
     </div>
     @section('js')
         <script>
-            Livewire.on('operatorCreated', message => {
-                Swal.fire({
-                    icon: 'success',
-                    title: message,
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-            })
-
             Livewire.on('deleteOperator', id => {
                 Swal.fire({
                     title: 'Esta seguro?',
