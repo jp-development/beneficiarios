@@ -9,59 +9,43 @@ use Livewire\Component;
 class Create extends Component
 {
 
-    public 
-    // Variables de formulario
-    $sim,
-    $zonalCenter,
-    $name,
+    public $name,
     $surname,
     $secondSurname,
-    $idType,
-    $identificationNumber,
-    $sex,
+    $typeId,
+    $numberId,
     $birth,
-    $department,
-    $municipality,
-    $nacionality,
-    $campus,
-    $authority,
-    $getDocuments = [],
-    $documents,
-    $adoptability,
-    $disability,
-    $eps,
-    $ethnic,
-    $pard,
-    $inputDate,
-    $scholarship,
-    $observationsSchool,
-    $nameResponsable,
-    $relationship,
-    $address,
-    $tel,
-    $inputObservations,
-    $sedes = [];
+    $dateInput,
+    $timeInput,
+    $sim,
+    $datePard,
+    $admin,
+    $regional,
+    $evaluation,
+    $zonalCenter,
+    $race,
+    $nationality,
+    $result,
+    $sede,
+    $modality,
+    $document,
+    $observationsInput,
 
-    protected $rules = [
-        'sim' => 'required',
-        'zonalCenter' => 'required',
-        'name' => 'required',
-        'surname' => 'required',
-        'secondSurname' => 'required',
-        'sex' => 'required',
-        'birth' => 'required',
-        'department' => 'required',
-        'municipality' => 'required',
-        'campus' => 'required',
-        'authority' => 'required',
-        'documents' => 'required',
-        
-    ];
+
+
+    $getDocuments = [],
+    $sedes = []
+
+    
+    
+    ;
+
+
 
     public function render()
     {
         $this->sedes = Operator::all();
-        $this->documents = Document::all();
+        $this->getDocuments = Document::all();
         return view('livewire.admin.beneficiary.create')
         ->extends('layouts.app')
         ->section('content');
@@ -69,8 +53,5 @@ class Create extends Component
 
 
 
-    public function create ()
-    {
-        dd($this);
-    }
+    
 }
