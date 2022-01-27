@@ -10,4 +10,8 @@ class Regional extends Model
     use HasFactory;
 
     protected $fillable = ['name'];
+
+    public function zonalcenters(){
+        return $this->hasMany(ZonalCenter::class, "id");
+    }
 }
