@@ -184,6 +184,45 @@
                 </div>
             </div>
 
+
+            <div x-data="{ isActive: false, open: false}">
+                <a href="#" @click="$event.preventDefault(); open = !open"
+                    class="flex items-center p-2 text-white transition-colors rounded-md  hover:bg-white hover:text-principal "
+                    :class="{'bg-white text-principal': isActive || open}" role="button" aria-haspopup="true"
+                    :aria-expanded="(open || isActive) ? 'true' : 'false'">
+                    <span aria-hidden="true">
+                        <svg class="w-5 h-5 " xmlns="http://www.w3.org/2000/svg" width="512" height="512"
+                            viewBox="0 0 512 512">
+                            <path
+                                d="M256,48c-79.5,0-144,61.39-144,137,0,87,96,224.87,131.25,272.49a15.77,15.77,0,0,0,25.5,0C304,409.89,400,272.07,400,185,400,109.39,335.5,48,256,48Z"
+                                style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                            <circle cx="256" cy="192" r="48"
+                                style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                        </svg>
+                    </span>
+                    <span class="ml-2 text-sm font-bold"> Regionales y centros zonales </span>
+                    <span class="ml-auto" aria-hidden="true">
+                        <!-- active class 'rotate-180' -->
+                        <svg class="w-4 h-4 transition-transform transform" :class="{ 'rotate-180': open }"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </span>
+                </a>
+                <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="Dashboards">
+                    <!-- active & hover classes 'text-gray-700 dark:text-light' -->
+                    <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
+                    <a href="/regionals/create" role="menuitem"
+                        class="block p-2 text-sm text-white font-bold transition-colors duration-200 rounded-md  hover:underline">
+                        Mantenimiento
+                    </a>
+                    <a href="/regionals" role="menuitem"
+                        class="block p-2 text-sm text-white font-bold transition-colors duration-200 rounded-md  hover:underline">
+                        Listados
+                    </a>
+                </div>
+            </div>
+
             <div x-data="{ isActive: false, open: false}">
                 <a href="#" @click="$event.preventDefault(); open = !open"
                     class="flex items-center p-2 text-white transition-colors rounded-md  hover:bg-white hover:text-principal "

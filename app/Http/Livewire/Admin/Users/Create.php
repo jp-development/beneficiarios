@@ -44,5 +44,12 @@ class Create extends Component
         ]);
 
         $user->assignRole($this->rol);
+
+        $this->reset([
+            'name',
+            'password',
+            'rol',
+            'email',
+        ]);
     }
 }

@@ -158,7 +158,7 @@
                                         <select
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none bg-white focus:border-indigo-500"
                                             wire:model.lazy='rol'>
-                                            <option selected>Roles</option>
+                                            <option disabled selected>Roles</option>
                                             @foreach ($roles as $role)
                                                 <option value="{{ $role }}">{{ $role }}</option>
                                             @endforeach
@@ -167,6 +167,9 @@
                                     </div>
                                 </div>
                             </div>
+
+                            
+
                             <div class="flex -mx-3">
                                 <div class="w-full px-3 mb-12">
                                     <label for="" class="text-xs font-semibold px-1">Password</label>
