@@ -10,12 +10,13 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-
+    
     <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/sweetalert2.min.css') }}">
 
     @yield('css')
+
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
     @livewireStyles
 

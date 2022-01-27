@@ -30,7 +30,7 @@
                             <div class="col-span-12 sm:col-span-3">
                                 <label for="country" class="block text-base font-medium text-black">Tipo de
                                     identificacion</label>
-                                <select wire:model.lazy='typeId'
+                                <select wire:model.lazy='typeId' 
                                     class="mt-1 block w-full py-2 px-3 border  bg-white rounded-md shadow-sm focus:outline-principal sm:text-sm">
                                     <option value="Tarjeta de Identidad">Tarjeta de identidad</option>
                                     <option value="Registro Civil">Registro civil</option>
@@ -57,7 +57,7 @@
 
                             <div class="col-span-12 sm:col-span-3">
                                 <label for="country" class="block text-base font-medium text-black">Vacuna</label>
-                                <select wire:model.lazy='typeId'
+                                <select wire:model.lazy='vacuna' 
                                     class="mt-1 block w-full py-2 px-3 border  bg-white rounded-md shadow-sm focus:outline-principal sm:text-sm">
                                     <option value="Pfizer">Pfizer</option>
                                     <option value="Moderna">Moderna</option>
@@ -78,10 +78,14 @@
 
                             <div class="col-span-12 sm:col-span-4">
                                 <label for="country" class="block text-base font-medium text-black">Nacionalidad</label>
-                                <select wire:model.lazy='nationality'
+                                <select wire:model.lazy='nationality' 
                                     class="mt-1 block w-full py-2 px-3 border  bg-white rounded-md shadow-sm focus:outline-principal sm:text-sm">
-
-                                </select>
+                                    @forelse ($getCountries as $item)
+                                        <option value="{{ $item->name }}">{{ $item->name }}</option>
+                                    @empty
+                                        
+                                    @endforelse
+                                </select>   
                             </div>
 
                             <div class="col-span-12 sm:col-span-4">
@@ -125,7 +129,7 @@
                             <div class="col-span-12 sm:col-span-4">
                                 <label for="country" class="block text-base font-medium text-black">Modalidad a la
                                     que ingresara</label>
-                                <select wire:model.lazy='modality'
+                                <select wire:model.lazy='modality' 
                                     class="mt-1 block w-full py-2 px-3 border  bg-white rounded-md shadow-sm focus:outline-principal sm:text-sm">
                                     @forelse ($sedes as $sede)
                                         <option value="{{ $sede->id }}">{{ $sede->name }}</option>
@@ -144,31 +148,31 @@
                                 </select>
                             </div>
 
-                            <div class="col-span-12 sm:col-span-4">
+                            <div class="col-span-12 sm:col-span-4" >
                                 <label class="block text-base font-medium text-black">
                                     Autoridad Administrativa</label>
                                 <input type="text" wire:model.lazy='admin'
                                     class="mt-1 focus:outline-principal  block w-full shadow-sm sm:text-sm  rounded-md p-2 border">
                             </div>
 
-                            <div class="col-span-12 sm:col-span-6">
+                            <div class="col-span-12 sm:col-span-6" wire:ignore>
                                 <label for="country" class="block text-base font-medium text-black">Regional</label>
-                                <select wire:model.lazy='regional'
-                                    class="mt-1 block w-full py-2 px-3 border  bg-white rounded-md shadow-sm focus:outline-principal sm:text-sm">
-                                    <option value="Tarjeta de Identidad">Tarjeta de identidad</option>
-                                    <option value="Registro Civil">Registro civil</option>
-                                    <option value="Cedula de Ciudadania">Cedula de ciudadania</option>
-                                    <option value="Pasaporte">Pasaporte</option>
-                                    <option value="Sin Documento">Sin Documento</option>
+                                <select wire:model.lazy='regional' id="regional"
+                                    class="mt-1 block w-full py-2 px-3 border  bg-white  rounded-md shadow-sm focus:outline-principal sm:text-sm">
+                                    
                                 </select>
                             </div>
 
-                            <div class="col-span-12 sm:col-span-6">
+                            <div class="col-span-12 sm:col-span-6" wire:ignore>
                                 <label for="country" class="block text-base font-medium text-black">Motivo de
                                     ingreso</label>
-                                <select wire:model.lazy='reason'
+                                <select wire:model.lazy='reason' multiple="multiple" id="reason"
                                     class="mt-1 block w-full py-2 px-3 border  bg-white rounded-md shadow-sm focus:outline-principal sm:text-sm">
-
+                                    @forelse ($getReasons as $item)
+                                        <option value="{{ $item->id }}">{{ $item->reason }}</option>
+                                    @empty
+                                        <option>No existen motivos creados aun</option>
+                                    @endforelse
                                 </select>
                             </div>
 
@@ -199,7 +203,7 @@
                                 </div>
                             </fieldset>
 
-                            <fieldset class="col-span-6">
+                            <fieldset class="col-span-6" >
                                 <legend class="text-base font-medium text-black">Documentos de ingreso</legend>
                                 <div class="mt-4 space-y-4  w-full">
                                     @forelse ($getDocuments as $document)
@@ -271,6 +275,17 @@
     </div>
 
     @section('js')
+        <script>
+            $(document).ready(function() {
+                $('#reason').select2();
+            });
 
+            $(document).ready(function() {
+                $('#regional').select2();
+            });
+
+            
+
+        </script>
     @endsection
 </div>

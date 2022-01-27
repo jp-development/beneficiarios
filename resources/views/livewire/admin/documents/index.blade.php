@@ -1,7 +1,7 @@
 <div>
-    <div class='flex justify-between'>
+    <div class='flex flex-col justify-between'>
         <h5 class="text-principal text-2xl font-bold">Documentos</h5>
-        <button class="bg-principal text-white text-base font-bold p-2 rounded-md"
+        <button class="bg-principal text-white text-base font-bold p-2 rounded-md mt-3"
             wire:click='$set("openModal","true")'>Agregar nuevo documento</button>
     </div>
 
@@ -9,8 +9,8 @@
         <table class="min-w-full">
             <thead>
                 <tr>
-                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">
-                        Name
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-black tracking-wider">
+                        Nombre del documento
                     </th>
                     <th
                         class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">
@@ -27,7 +27,23 @@
                         </td>
                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                             <div class="text-sm leading-5 text-blue-900">
-                                <button class="p-2 text-white font-bold bg-red-600 rounded hover:bg-red-500" wire:click.prevent='$emit("deleteDocument", {{ $document->id }})'>Eliminar documento</button>
+                                <button class="p-2 text-white font-bold bg-red-600 rounded hover:bg-red-500 w-full flex justify-center"
+                                    wire:click.prevent='$emit("deleteDocument", {{ $document->id }})'> <svg
+                                    xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 512 512">
+                                    <path
+                                        d="M112,112l20,320c.95,18.49,14.4,32,32,32H348c17.67,0,30.87-13.51,32-32l20-320"
+                                        style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                    <line x1="80" y1="112" x2="432" y2="112"
+                                        style="stroke:#fff;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px" />
+                                    <path d="M192,112V72h0a23.93,23.93,0,0,1,24-24h80a23.93,23.93,0,0,1,24,24h0v40"
+                                        style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                    <line x1="256" y1="176" x2="256" y2="400"
+                                        style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                    <line x1="184" y1="176" x2="192" y2="400"
+                                        style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                    <line x1="328" y1="176" x2="320" y2="400"
+                                        style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                                </svg>Eliminar documento</button>
                             </div>
                         </td>
                     </tr>
